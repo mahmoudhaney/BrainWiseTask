@@ -29,12 +29,15 @@ services:
     build: ./server/. 
     volumes:
       - ./server:/app
+      - static_volume:/app/static
     ports:
       - "8000:8000"
+    env_file:
+      - ./.env
     depends_on:
       postgres:
         condition: service_healthy
-    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"
 
   frontend:
     container_name: frontend-container
@@ -45,6 +48,8 @@ services:
       - "3000:3000"
     environment:
       - WATCHPACK_POLLING=true
+    depends_on:
+      - backend
 
   nginx:
     image: nginx:stable-alpine
@@ -52,8 +57,11 @@ services:
       - "80:80"
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - static_volume:/app/static
     depends_on:
       - backend
+      - frontend
 
 volumes:
   postgres_dev_data:
+  static_volume:
