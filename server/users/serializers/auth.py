@@ -21,7 +21,12 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         return token
 
 class JWTLoginSerializer(CustomTokenObtainPairSerializer):
-    pass
+    is_staff = serializers.BooleanField(source='user.is_staff', read_only=True)
+    
+    def validate(self, attrs):
+        data = super().validate(attrs)
+        data['is_staff'] = self.user.is_staff
+        return data
 
 class SignUpSerializer(BasicUserSerializer):
     password = serializers.CharField(write_only=True, required=True, style={'input_type' : 'password'}, validators=[validate_password])
