@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'users',
     'django_rest_passwordreset',
     'company',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +48,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'users.middleware.RequestLoggingMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
 ]
 
 REST_FRAMEWORK = {
