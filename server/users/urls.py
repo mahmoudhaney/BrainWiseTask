@@ -4,7 +4,9 @@ from .views import (
     JWTLoginView, 
     SignupView, 
     PasswordChangeView, 
-    UserProfileView, 
+    UserProfileView,
+    EmployeeListCreateView,
+    EmployeeRetrieveUpdateDestroyView
     )
 
 app_name = 'users'
@@ -24,5 +26,7 @@ auth_urls = [
 
 urlpatterns = [
     path('auth/', include(auth_urls)),
-    path('profile/', UserProfileView.as_view(), name='user_profile'),   
+    path('profile/', UserProfileView.as_view(), name='user_profile'),
+    path('employees/', EmployeeListCreateView.as_view(), name='employee-list-create'),
+    path('employees/<int:pk>', EmployeeRetrieveUpdateDestroyView.as_view(), name='employee-detail'), 
 ]

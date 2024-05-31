@@ -7,7 +7,6 @@ class Employee(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     department = models.ForeignKey(Department, related_name='employees', on_delete=models.CASCADE)
-    name = models.CharField(max_length=255)
     designation = models.CharField(max_length=100, null=False, blank=False)
     hired_on = models.DateField(null=True, blank=True)
     days_employed = models.PositiveIntegerField(null=True, blank=True, editable=False)

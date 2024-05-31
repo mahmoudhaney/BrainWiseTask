@@ -1,11 +1,12 @@
 from rest_framework.test import APITestCase 
 from django.urls import reverse
 from rest_framework import status
-from users.models import User
+from users.models import User, Employee
 from rest_framework_simplejwt.tokens import RefreshToken
 import datetime
 from django.core import mail
 import re
+from company.models import Company, Department
 
 def create_basic_user():
     return User.objects.create_user(username='testuser', 
@@ -510,3 +511,62 @@ class UserProfileUpdateTestCase(APITestCase):
     def test_update_profile_without_authentication(self):
         response = self.client.delete(self.url)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+def HTTP_AUTHORIZATION_HEADER(access_token):
+    return {'HTTP_AUTHORIZATION': f'Bearer {access_token}'}
+
+class EmployeePermissionTestCase(APITestCase):
+    def setUp(self):
+        self.company = Company.objects.create(name='TestCompany')
+        self.other_company = Company.objects.create(name='OtherCompany')
+        self.department = Department.objects.create(name='TestDepartment', company=self.company)
+        self.other_department = Department.objects.create(name='OtherDepartment', company=self.other_company)
+        self.employee_user = create_basic_user()
+        self.employee = Employee.objects.create(
+            user=self.employee_user,
+            company=self.company,
+            department=self.department,
+            designation='Software Engineer',
+        )
+        self.admin_user = create_admin_user()
+        self.employee_refresh_token, self.employee_access_token = authenticate_user(self.employee_user)
+        self.admin_refresh_token, self.admin_access_token = authenticate_user(self.admin_user)
+        self.employee_headers = HTTP_AUTHORIZATION_HEADER(self.employee_access_token)
+        self.admin_headers = HTTP_AUTHORIZATION_HEADER(self.admin_access_token)
+        self.employee_list_create_url = reverse('users:employee-list-create')
+        self.employee_detail_url = reverse('users:employee-detail', args=[self.employee.id])
+
+    def test_employee_get_list_as_admin(self):
+        response = self.client.get(self.employee_list_create_url, **self.admin_headers)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_employee_get_detail_as_admin(self):
+        response = self.client.get(self.employee_detail_url, **self.admin_headers)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_employee_get_detail_as_employee(self):
+        response = self.client.get(self.employee_detail_url, **self.employee_headers)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_employee_create_as_employee(self):
+        data = {
+            'user': self.employee_user.id,
+            'company': self.company.id,
+            'department': self.department.id,
+            'designation': 'Software Engineer',
+        }
+        response = self.client.post(self.employee_list_create_url, data, **self.employee_headers)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_employee_update_as_employee(self):
+        data = {'designation': 'UpdatedDesignation'}
+        response = self.client.put(self.employee_detail_url, data, **self.employee_headers)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_employee_delete_as_employee(self):
+        response = self.client.delete(self.employee_detail_url, **self.employee_headers)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_employee_delete_as_admin(self):
+        response = self.client.delete(self.employee_detail_url, **self.admin_headers)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)

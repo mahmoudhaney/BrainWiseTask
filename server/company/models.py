@@ -4,11 +4,17 @@ class Company(models.Model):
     name = models.CharField(max_length=255)
     num_departments = models.PositiveIntegerField(default=0, editable=False)
     num_employees = models.PositiveIntegerField(default=0, editable=False)
-    
+
+    class Meta:
+        verbose_name_plural = 'companies'
+
     def update_counts(self):
         self.num_departments = self.departments.count()
         self.num_employees = sum(department.employees.count() for department in self.departments.all())
         self.save()
+
+    def __str__(self):
+        return self.name
 
 class Department(models.Model):
     company = models.ForeignKey(Company, related_name='departments', on_delete=models.CASCADE)
@@ -19,3 +25,6 @@ class Department(models.Model):
         self.num_employees = self.employees.count()
         self.save()
         self.company.update_counts()
+
+    def __str__(self):
+        return self.name
