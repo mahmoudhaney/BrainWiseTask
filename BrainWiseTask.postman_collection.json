@@ -1,0 +1,1054 @@
+{
+	"info": {
+		"_postman_id": "455633c8-1068-46a2-88d4-68ea945e2a23",
+		"name": "BrainWiseTask",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23723164"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "mahmoudhaneysaeed",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/users/auth/login/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"users",
+								"auth",
+								"login",
+								""
+							]
+						},
+						"description": "Must be registered\n\n- Must have correct `email` and `password`"
+					},
+					"response": []
+				},
+				{
+					"name": "Token Refresh",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "refresh",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzQ1NDI5OSwiaWF0IjoxNzEzNDU0MjM5LCJqdGkiOiJjMzM1OGIzMTdlZjY0OTRmODJjZjdjODg5NTBmMDc0ZSIsInVzZXJfaWQiOjM2LCJlbWFpbCI6Im5ld191c2VyXzEyQGdtYWlsLmNvbSJ9.I4h0GImS3-oAZ-jq48sMOLRkQC7ml6ShZcOtdIcxeT4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/users/auth/token/refresh/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"users",
+								"auth",
+								"token",
+								"refresh",
+								""
+							]
+						},
+						"description": "Must be registered\n\n- Must have correct `email` and `password`"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "refresh",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzQ1NjQwOSwiaWF0IjoxNzEzNDU2MzQ5LCJqdGkiOiI0ZGI2MDk4OGNkN2Y0ZjJlOWY5YmZjN2QxYTQyNmE5OCIsInVzZXJfaWQiOjM2LCJlbWFpbCI6Im5ld191c2VyXzEyQGdtYWlsLmNvbSJ9.RN4A8pUYSvcQMxhKvaEx31AMiJq9wDfL0ole9GCBdn",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/users/auth/logout/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"users",
+								"auth",
+								"logout",
+								""
+							]
+						},
+						"description": "Must be registered\n\n- Must have correct `email` and `password`"
+					},
+					"response": []
+				},
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "alimohamed",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Django123",
+									"type": "text"
+								},
+								{
+									"key": "password2",
+									"value": "Django123",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "alimohamed@icloud.com",
+									"type": "text"
+								},
+								{
+									"key": "first_name",
+									"value": "Ali",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "Mohamed",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "01158981915",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Cairo Egypt",
+									"type": "text"
+								},
+								{
+									"key": "id_proof_number",
+									"value": "30201012119215",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/users/auth/signup/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"users",
+								"auth",
+								"signup",
+								""
+							]
+						},
+						"description": "- Anyone can Signup in the system.\n- All Fields are required."
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0OTc4MTUwLCJpYXQiOjE3MTM0NDIxNTAsImp0aSI6IjMzOTIyYTc3NmEwODQ3N2U5NmRmZmM0NTc5NzQyYTQyIiwidXNlcl9pZCI6MzUsImVtYWlsIjoibmV3X3VzZXJfMTFAZ21haWwuY29tIn0.umL2-_I7ryn3UA0qWnWYkXxAGq3LULQoYT-jYGzsxSU"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "old_password",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "new_password",
+									"value": "new",
+									"type": "text"
+								},
+								{
+									"key": "new_password2",
+									"value": "new",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/users/auth/password/change/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"users",
+								"auth",
+								"password",
+								"change",
+								""
+							]
+						},
+						"description": "Must be registered\n\n- valid `token` and `old_password` are required.\n- `new_password` must be valid."
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "mahmoudhaney@icloud.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/users/auth/password/reset/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"users",
+								"auth",
+								"password",
+								"reset",
+								""
+							]
+						},
+						"description": "Must be registered\n\n- `email` which the user used to signup."
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password Confirm",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "password",
+									"value": "Django321",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "token",
+									"value": "6ba013b834695269269f3313e7b37504f2a2fe8a890c879d",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/users/auth/password/reset/confirm/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"users",
+								"auth",
+								"password",
+								"reset",
+								"confirm",
+								""
+							]
+						},
+						"description": "Must be registered\n\n- token which is sent to user email.\n    \n- new password and must be valid."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Retrieve User Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NzU5OTI3LCJpYXQiOjE3MTcyMjM5MjcsImp0aSI6IjQwZGMyN2YwZDI2ZDRkNjdiMzcyMDc5Njg0YWQ1MmY2IiwidXNlcl9pZCI6MiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20ifQ.1tDGkOtkwq6T0I03cwrs6QhSvM2q_YEBAS0m9IeT2d0"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/api/users/profile/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"users",
+								"profile",
+								""
+							]
+						},
+						"description": "Must be registered\n\n- valid `token` is required."
+					},
+					"response": []
+				},
+				{
+					"name": "List Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1MDg2NTUyLCJpYXQiOjE3MTM1NTA1NTIsImp0aSI6IjVkMWFmN2Y0OWQwZTQ2ODA5NDc1N2EzYjRlODgyNmE2IiwidXNlcl9pZCI6MzksImVtYWlsIjoibWFobW91ZGhhbmV5MTVAaWNsb3VkLmNvbSJ9.6uEA1-n7C5VpAQjhVnXts9E7aCETAyv07zVZR8ub-3s"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/users/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"users",
+								"list"
+							]
+						},
+						"description": "Must be registered\n\n- valid `token` is required."
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NzU5OTI3LCJpYXQiOjE3MTcyMjM5MjcsImp0aSI6IjQwZGMyN2YwZDI2ZDRkNjdiMzcyMDc5Njg0YWQ1MmY2IiwidXNlcl9pZCI6MiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20ifQ.1tDGkOtkwq6T0I03cwrs6QhSvM2q_YEBAS0m9IeT2d0"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "Mahmoud",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "Haney",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "new_user_12com",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Egypt",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "phone_number",
+									"value": "011150079825",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/users/profile/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"users",
+								"profile",
+								""
+							]
+						},
+						"description": "Must be registered\n\n- valid `token` is required.\n    \n- all fields are not required."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User Profile",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0OTA5ODY0LCJpYXQiOjE3MTMzNzM4NjQsImp0aSI6ImVkMzVjYTFlYjVhNzQwNjc5OWYwMWVlZTgzOWM4Mzc1IiwidXNlcl9pZCI6MjQsImVtYWlsIjoibmV3X3VzZXIxNkBleGFtcGxlLmNvbSJ9.9qlLgHhwo_R1hkZqbicSqOq9sYUcd98kDNEJs9RZbVg"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/users/profile/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"users",
+								"profile",
+								""
+							]
+						},
+						"description": "Must be registered\n\n- valid `token` is required."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Add Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NzcxNDA4LCJpYXQiOjE3MTcyMzU0MDgsImp0aSI6ImIwMmQ1ZGY4MjUzYjRjMGU4ZjFlNGIxMWFmODhmNDhmIiwidXNlcl9pZCI6NiwiZW1haWwiOiJtYWhtb3VkaGFuZXlzYWVlZEBnbWFpbC5jb20ifQ.VJWFMVIk836K88iAyk0ixQ6vP0_1smos6rl9_tm8dFo"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Company 2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/company/companies/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"company",
+								"companies",
+								""
+							]
+						},
+						"description": "- Anyone can Signup in the system.\n- All Fields are required."
+					},
+					"response": []
+				},
+				{
+					"name": "List Companies",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost/api/company/companies/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"company",
+								"companies",
+								""
+							]
+						},
+						"description": "- Anyone can Signup in the system.\n- All Fields are required."
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Company",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost/api/company/companies/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"company",
+								"companies",
+								"2"
+							]
+						},
+						"description": "- Anyone can Signup in the system.\n- All Fields are required."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjI2MTYzLCJpYXQiOjE3MTcwOTAxNjMsImp0aSI6IjM4MzhjNDJlNDI0ZDRhZmY4MGJhMDNhYTQzNWZhNjUwIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20ifQ.maJJfjdTkgm3YqGyhAHCfb3g50XEAaKhjxLAtylFTww"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Company 1;",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/company/companies/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"company",
+								"companies",
+								"2"
+							]
+						},
+						"description": "- Anyone can Signup in the system.\n- All Fields are required."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Company",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjI2MTYzLCJpYXQiOjE3MTcwOTAxNjMsImp0aSI6IjM4MzhjNDJlNDI0ZDRhZmY4MGJhMDNhYTQzNWZhNjUwIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20ifQ.maJJfjdTkgm3YqGyhAHCfb3g50XEAaKhjxLAtylFTww"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost/api/company/companies/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"company",
+								"companies",
+								"1"
+							]
+						},
+						"description": "- Anyone can Signup in the system.\n- All Fields are required."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Department",
+			"item": [
+				{
+					"name": "Add Department",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NzcxNDA4LCJpYXQiOjE3MTcyMzU0MDgsImp0aSI6ImIwMmQ1ZGY4MjUzYjRjMGU4ZjFlNGIxMWFmODhmNDhmIiwidXNlcl9pZCI6NiwiZW1haWwiOiJtYWhtb3VkaGFuZXlzYWVlZEBnbWFpbC5jb20ifQ.VJWFMVIk836K88iAyk0ixQ6vP0_1smos6rl9_tm8dFo"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Development",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/company/departments/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"company",
+								"departments",
+								""
+							]
+						},
+						"description": "- Anyone can Signup in the system.\n- All Fields are required."
+					},
+					"response": []
+				},
+				{
+					"name": "List Departments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost/api/company/departments/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"company",
+								"departments",
+								""
+							]
+						},
+						"description": "- Anyone can Signup in the system.\n- All Fields are required."
+					},
+					"response": []
+				},
+				{
+					"name": "List Company's Departments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NzY2NTcxLCJpYXQiOjE3MTcyMzA1NzEsImp0aSI6IjA2OTcwZjE1NTI1NTQ4ODE5NTI2MzdjYTE1ZjQyMzFkIiwidXNlcl9pZCI6MiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20ifQ._NYNiX2z3u5HlBp3xWsCkMZ2ciL4KPT8iSr2JkWClAM"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost/api/company/companies/1/departments/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"company",
+								"companies",
+								"1",
+								"departments",
+								""
+							]
+						},
+						"description": "- Anyone can Signup in the system.\n- All Fields are required."
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Department",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost/api/company/departments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"company",
+								"departments",
+								"1"
+							]
+						},
+						"description": "- Anyone can Signup in the system.\n- All Fields are required."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Department",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjI2MTYzLCJpYXQiOjE3MTcwOTAxNjMsImp0aSI6IjM4MzhjNDJlNDI0ZDRhZmY4MGJhMDNhYTQzNWZhNjUwIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20ifQ.maJJfjdTkgm3YqGyhAHCfb3g50XEAaKhjxLAtylFTww"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Department One",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/company/departments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"company",
+								"departments",
+								"1"
+							]
+						},
+						"description": "- Anyone can Signup in the system.\n- All Fields are required."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Company",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjI2MTYzLCJpYXQiOjE3MTcwOTAxNjMsImp0aSI6IjM4MzhjNDJlNDI0ZDRhZmY4MGJhMDNhYTQzNWZhNjUwIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20ifQ.maJJfjdTkgm3YqGyhAHCfb3g50XEAaKhjxLAtylFTww"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost/api/company/departments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"company",
+								"departments",
+								"1"
+							]
+						},
+						"description": "- Anyone can Signup in the system.\n- All Fields are required."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employees",
+			"item": [
+				{
+					"name": "Add Employee",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjI2MTYzLCJpYXQiOjE3MTcwOTAxNjMsImp0aSI6IjM4MzhjNDJlNDI0ZDRhZmY4MGJhMDNhYTQzNWZhNjUwIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20ifQ.maJJfjdTkgm3YqGyhAHCfb3g50XEAaKhjxLAtylFTww"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "department",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "designation",
+									"value": "Software Engineer 1",
+									"type": "text"
+								},
+								{
+									"key": "hired_on",
+									"value": "2023-01-01",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/users/employees/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"users",
+								"employees",
+								""
+							]
+						},
+						"description": "- Anyone can Signup in the system.\n- All Fields are required."
+					},
+					"response": []
+				},
+				{
+					"name": "List Employees",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NzU5OTI3LCJpYXQiOjE3MTcyMjM5MjcsImp0aSI6IjQwZGMyN2YwZDI2ZDRkNjdiMzcyMDc5Njg0YWQ1MmY2IiwidXNlcl9pZCI6MiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20ifQ.1tDGkOtkwq6T0I03cwrs6QhSvM2q_YEBAS0m9IeT2d0"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost/api/users/employees/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"users",
+								"employees",
+								""
+							]
+						},
+						"description": "- Anyone can Signup in the system.\n- All Fields are required."
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Employee",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4Njc1ODE2LCJpYXQiOjE3MTcxMzk4MTYsImp0aSI6ImNmNWNiNzZmMDE1YzQ1MjI4NGEzZTg0Y2ZiNGVjZDQ1IiwidXNlcl9pZCI6NCwiZW1haWwiOiJ2b3RlcjFAaWNsb3VkLmNvbSJ9._B2nIwoGM_5eH6ILmNwbw7957Ds_FGokUKVksCH15hw"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost/api/users/employees/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"users",
+								"employees",
+								"1"
+							]
+						},
+						"description": "- Anyone can Signup in the system.\n- All Fields are required."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Employee",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjI2MTYzLCJpYXQiOjE3MTcwOTAxNjMsImp0aSI6IjM4MzhjNDJlNDI0ZDRhZmY4MGJhMDNhYTQzNWZhNjUwIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20ifQ.maJJfjdTkgm3YqGyhAHCfb3g50XEAaKhjxLAtylFTww"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "department",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "designation",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "hired_on",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/api/users/employees/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"users",
+								"employees",
+								"1"
+							]
+						},
+						"description": "- Anyone can Signup in the system.\n- All Fields are required."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Employee",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4NjI2MTYzLCJpYXQiOjE3MTcwOTAxNjMsImp0aSI6IjM4MzhjNDJlNDI0ZDRhZmY4MGJhMDNhYTQzNWZhNjUwIiwidXNlcl9pZCI6MSwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20ifQ.maJJfjdTkgm3YqGyhAHCfb3g50XEAaKhjxLAtylFTww"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost/api/users/employees/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"users",
+								"employees",
+								"1"
+							]
+						},
+						"description": "- Anyone can Signup in the system.\n- All Fields are required."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
