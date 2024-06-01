@@ -1,0 +1,13 @@
+.empty-notFound {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.empty-notFound div h2{
+    text-align: center;
+    background-color: var(--mainColor);
+    color: white;
+    padding: 20px;
+    font-size: 2em;
+}

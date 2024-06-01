@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 from .models import Company, Department
 from .serializers import CompanySerializer, DepartmentSerializer
 from .permissions import IsAdminOrReadOnly
@@ -35,3 +35,11 @@ class DepartmentRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView)
         company = instance.company
         instance.delete()
         company.update_counts()
+
+class DepartmentsByCompanyView(generics.ListAPIView):
+    serializer_class = DepartmentSerializer
+    permission_classes = [permissions.IsAdminUser]
+
+    def get_queryset(self):
+        company_id = self.kwargs['company_id']
+        return Department.objects.filter(company_id=company_id)

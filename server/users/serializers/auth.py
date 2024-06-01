@@ -25,6 +25,7 @@ class JWTLoginSerializer(CustomTokenObtainPairSerializer):
     
     def validate(self, attrs):
         data = super().validate(attrs)
+        data['id'] = self.user.id
         data['is_staff'] = self.user.is_staff
         return data
 

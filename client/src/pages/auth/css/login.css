@@ -1,0 +1,4 @@
+.row {
+    justify-content: center;
+    --bs-gutter-x: 0 !important;
+}

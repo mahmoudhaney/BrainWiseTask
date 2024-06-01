@@ -1,0 +1,27 @@
+#portfolio {
+    background-color: var(--sectionColor);
+}
+
+#portfolio .portfolio-content {
+    margin-top: var(--sectionMargin);
+}
+
+#portfolio .portfolio-content div {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0px 5px 80px 1px rgb(110 123 131 / 5%);
+    transition: var(--mainDuration);
+}
+
+#portfolio .portfolio-content div:hover {
+    box-shadow: 0 0 35px 0 rgb(0 0 0 / 20%);
+}
+
+.portfolio-content div .project-info {
+    padding: 20px;
+}
+
+.portfolio-content div .project-info h3 {
+    margin: 0;
+}

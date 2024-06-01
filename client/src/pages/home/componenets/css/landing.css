@@ -1,0 +1,29 @@
+.landing {
+    background-image: url(../../../../assets/images/landing.jpg);
+    /* 72px is the header height */
+    height: calc(100vh - 52px);
+    position: relative;
+}
+
+.landing .landing-info {
+    position: absolute;
+    /* To center */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 350px;
+    max-width: 100%;
+}
+
+.landing .landing-info h1 {
+    margin: 0;
+    color: var(--mainColor);
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.landing .landing-info p {
+    margin: 0;
+    padding: 10px;
+}

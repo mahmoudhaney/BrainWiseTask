@@ -1,0 +1,14 @@
+#features {
+    background-color: var(--sectionColor);
+}
+
+#features .feature {
+    text-align: center;
+    padding: 10px;
+}
+
+#features .feature h4 {
+    color: var(--mainColor);
+    font-weight: 800;
+    font-size: unset;
+}
