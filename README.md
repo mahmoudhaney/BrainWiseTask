@@ -32,7 +32,7 @@
 - ReactJS
 - Django REST Framework
 - JWT
-- PostgresSQL
+- PostgreSQL
 - Version Controle (GIT)
 - Docker
 - Nginx
